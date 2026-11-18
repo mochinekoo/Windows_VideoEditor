@@ -23,6 +23,7 @@ namespace Windows_VideoEditor {
             ViewSurface.LoadContent += LoadViewSurface;
             ViewSurface.Draw += DrawViewSurface;
             ViewSurface.UnloadContent += UnLoadViewSurface;
+            DataContext = new MainViewModel(this);
         }
 
         public void LoadViewSurface(object? sender, DrawingSurfaceEventArgs e) {

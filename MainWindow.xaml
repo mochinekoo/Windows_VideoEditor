@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Windows_VideoEditor"
-        xmlns:wpf="http://schemas.vortice.windows.io"
+        xmlns:wpf="http://schemas.vortice.windows.io" d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -14,10 +14,17 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <wpf:DrawingSurface Grid.Column="0" Grid.Row="0" x:Name="ViewSurface"/>
+        <Menu Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+            <MenuItem Header="ファイル">
+                <MenuItem Header="終了" Command="{Binding MenuCommand.ExitCommand}"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <wpf:DrawingSurface Grid.Column="0" Grid.Row="1" x:Name="ViewSurface"/>
     </Grid>
 </Window>
