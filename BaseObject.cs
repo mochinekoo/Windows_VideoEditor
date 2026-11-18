@@ -6,8 +6,9 @@ using System.Text;
 namespace VorticeDirectX11_Template {
     public abstract class BaseObject {
 
-        private readonly string name_ = "";
-
+        public string Name {
+            get; private set;
+        }
         public int DrawHighOrder {
             get; set;
         } = 10000;
@@ -28,7 +29,7 @@ namespace VorticeDirectX11_Template {
         } = new Transform();
 
         public BaseObject(string name) {
-            name_ = name;
+            Name = name;
         }
 
         public abstract void Init();

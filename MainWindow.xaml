@@ -26,5 +26,12 @@
         </Menu>
 
         <wpf:DrawingSurface Grid.Column="0" Grid.Row="1" x:Name="ViewSurface"/>
+
+        <ComboBox Grid.Column="0" Grid.Row="2">
+            <ComboBoxItem Content="図形"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Name="Timeline" Grid.Column="1" Grid.Row="2">
+        </ComboBox>
     </Grid>
 </Window>

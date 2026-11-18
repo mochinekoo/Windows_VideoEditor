@@ -27,7 +27,7 @@ namespace Windows_VideoEditor {
         }
 
         public void LoadViewSurface(object? sender, DrawingSurfaceEventArgs e) {
-            MainRender.Init(e);
+            MainRender.Init(this, e);
         }
 
         public void DrawViewSurface(object? sender, DrawEventArgs e) {
