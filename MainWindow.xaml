@@ -31,7 +31,59 @@
             <ComboBoxItem Content="図形"></ComboBoxItem>
         </ComboBox>
 
+        <Grid Name="ObjectInfo" Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--移動-->
+            <TextBlock Grid.Column="0" Grid.Row="0">X</TextBlock>
+            <Slider Name="ObjectXSlider" Grid.Column="1" Grid.Row="0" Value="{Binding ObjectX, Mode=TwoWay}"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="1">Y</TextBlock>
+            <Slider Name="ObjectYSlider" Grid.Column="1" Grid.Row="1" Value="{Binding ObjectY, Mode=TwoWay}"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="2">Z</TextBlock>
+            <Slider Name="ObjectZSlider" Grid.Column="1" Grid.Row="2" Value="{Binding ObjectZ, Mode=TwoWay}"></Slider>
+
+            <!--回転-->
+            <TextBlock Grid.Column="0" Grid.Row="3">X</TextBlock>
+            <Slider Name="ScaleXSlider" Grid.Column="1" Grid.Row="3" Value="{Binding ScaleX, Mode=TwoWay}"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="4">Y</TextBlock>
+            <Slider Name="ScaleYSlider" Grid.Column="1" Grid.Row="4" Value="{Binding ScaleY, Mode=TwoWay}"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="5">Z</TextBlock>
+            <Slider Name="ScaleZSlider" Grid.Column="1" Grid.Row="5" Value="{Binding ScaleZ, Mode=TwoWay}"></Slider>
+
+            <!--拡大-->
+            <TextBlock Grid.Column="0" Grid.Row="6">X</TextBlock>
+            <Slider Name="RotationXSlider" Grid.Column="1" Grid.Row="6" Value="{Binding RotationX, Mode=TwoWay}"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="7">Y</TextBlock>
+            <Slider Name="RotationYSlider" Grid.Column="1" Grid.Row="7" Value="{Binding RotationY, Mode=TwoWay}"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="8">Z</TextBlock>
+            <Slider Name="RotationZSlider" Grid.Column="1" Grid.Row="8" Value="{Binding RotationZ, Mode=TwoWay}"></Slider>
+        </Grid>
+
         <ComboBox Name="Timeline" Grid.Column="1" Grid.Row="2">
         </ComboBox>
+       
     </Grid>
 </Window>

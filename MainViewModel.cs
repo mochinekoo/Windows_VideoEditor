@@ -18,5 +18,41 @@ namespace Windows_VideoEditor {
             this.mainWindow_ = main;
             this.MenuCommand = new MenuCommand(this);
         }
+
+        public float ObjectX {
+            set; get;
+        }
+
+        public float ObjectY {
+            set; get;
+        }
+
+        public float ObjectZ {
+            set; get;
+        }
+
+        public float ScaleX {
+            set; get;
+        }
+
+        public float ScaleY {
+            set; get;
+        }
+
+        public float ScaleZ {
+            set; get;
+        }
+
+        public float RotationX {
+            set; get;
+        }
+
+        public float RotationY {
+            set; get;
+        }
+
+        public float RotationZ {
+            set; get;
+        }
     }
 }
