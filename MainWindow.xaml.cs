@@ -8,17 +8,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Vortice.Wpf;
+using VorticeDirectX_Sample;
 
-namespace Windows_VideoEditor
-{
+namespace Windows_VideoEditor {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class MainWindow : Window {
+        public static Render MainRender { get; private set; } = new Render();
+
+        public MainWindow() {
             InitializeComponent();
+            ViewSurface.LoadContent += LoadViewSurface;
+            ViewSurface.Draw += DrawViewSurface;
+            ViewSurface.UnloadContent += UnLoadViewSurface;
+        }
+
+        public void LoadViewSurface(object? sender, DrawingSurfaceEventArgs e) {
+            MainRender.Init(e);
+        }
+
+        public void DrawViewSurface(object? sender, DrawEventArgs e) {
+            MainRender.Draw(e);
+        }
+
+        public void UnLoadViewSurface(object? sender, DrawingSurfaceEventArgs e) {
+
         }
     }
 }
