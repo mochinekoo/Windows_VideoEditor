@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using VorticeDirectX_Sample;
 using Windows_VideoEditor;
 
 namespace Windows_VideoEditor {
@@ -37,7 +38,10 @@ namespace Windows_VideoEditor {
         }
 
         public void RunSaveCommand() {
-
+            var desc = Render.DX3D.Texture2D.Description;
+            int width = (int) desc.Width;
+            int height = (int)desc.Height;
+            Render.Encoder.Save(saveWindow.FileNameBox.Text, Render.NowPixel, width, height);
         } 
     }
 }

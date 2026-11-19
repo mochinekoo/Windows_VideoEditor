@@ -21,6 +21,6 @@
         <TextBox Name="FileNameBox" IsReadOnly="True"></TextBox>
         <Button Name="FileChooseButton" Grid.Column="1" Grid.Row="0" Command="{Binding FileChooseButton}">ファイルを選ぶ</Button>
 
-        <Button Name="StartButton" Grid.Column="0" Grid.Row="1" Command="{Binding StartButton}">保存</Button>
+        <Button Name="SaveButton" Grid.Column="0" Grid.Row="1" Command="{Binding SaveButton}">保存</Button>
     </Grid>
 </Window>

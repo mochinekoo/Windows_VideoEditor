@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Media.Effects;
 using Vortice.D3DCompiler;
 using Vortice.Direct3D11;
@@ -27,6 +30,14 @@ namespace VorticeDirectX_Sample {
             get; private set;
         } = null;
 
+        public static FFMpegEncoder? Encoder {
+            get; private set;
+        } = new FFMpegEncoder();
+
+        public static byte[] NowPixel {
+            get; private set;
+        }
+
         public void Init(MainWindow window, DrawingSurfaceEventArgs e) {
             DrawWindow = window;
             DX3D.Init(e);
@@ -53,6 +64,25 @@ namespace VorticeDirectX_Sample {
 
             ObjectManager.UpdateAllObject();
             ObjectManager.DrawAllObject();
+
+            DX3D.InitTexture2D((int) desc.Width, (int) desc.Height);
+            e.Context.CopyResource(DX3D.Texture2D, texture);
+            var mapped = e.Context.Map(DX3D.Texture2D, 0, MapMode.Read, MapFlags.None);
+            int width = (int) desc.Width;
+            int height = (int) desc.Height;
+            NowPixel = new byte[width * height * 4];
+            try {
+                for (int y = 0; y < height; y++) {
+                    Marshal.Copy(
+                        IntPtr.Add(mapped.DataPointer, y * (int)mapped.RowPitch), 
+                        NowPixel, 
+                        y * width * 4, 
+                        width * 4
+                        );
+                }
+            } finally {
+                e.Context.Unmap(DX3D.Texture2D, 0);
+            }
 
             e.Context.RSSetState(null);
         }

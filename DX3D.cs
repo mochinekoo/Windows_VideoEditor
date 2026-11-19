@@ -32,6 +32,10 @@ namespace VorticeDirectX_Sample.Manager {
             get; private set;
         }
 
+        public ID3D11Texture2D Texture2D {
+            get; private set;
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         public struct Vertex {
             public Vector3 Location;
@@ -127,6 +131,21 @@ namespace VorticeDirectX_Sample.Manager {
                 AntialiasedLineEnable = false
             };
             RasterizerState = DXDevice.CreateRasterizerState(rasterizerDescription);
+        }
+
+        public void InitTexture2D(int width, int height) {
+            var desc = new Texture2DDescription {
+                Width = (uint) width,
+                Height = (uint) height,
+                MipLevels = 1,
+                ArraySize = 1,
+                Format = Vortice.DXGI.Format.B8G8R8A8_UNorm,
+                SampleDescription = new Vortice.DXGI.SampleDescription(1, 0),
+                Usage = ResourceUsage.Staging,
+                BindFlags = BindFlags.None,
+                CPUAccessFlags = CpuAccessFlags.Read
+            };
+            Texture2D = DXDevice.CreateTexture2D(desc);
         }
     }
 }
